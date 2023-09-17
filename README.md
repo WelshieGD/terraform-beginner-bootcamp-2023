@@ -34,3 +34,39 @@ File permissions needed updated to execute new file
 - [chmod](https://en.wikipedia.org/wiki/Chmod)
 
 - [GitPod init](https://www.gitpod.io/docs/configure/workspaces/tasks#prebuild-and-new-workspaces)
+
+
+### Working with Env Vars
+We can list out all environment variables (Env Vars) using the `env` command
+
+We can filter specific environment variables using group. E.g. `env | grep AWS_`
+
+### Setting and unsetting Env Vars
+
+In the terminal we can set using `export HELLO='world'`
+
+In the terminal we can unset usin `unset HELLO` (no need for$)
+
+We can set an env var temporarily when just running a command 
+```sh
+$HELLO='world' ./bin/print_message
+```
+Within a bash script we can set env without writing export. E.g.
+
+```sh
+#!/usr/bin/env bash
+HELLO='world'
+echo $HELLO
+```
+### Printing Env Vars
+
+We can print an env vcar using echo. ER.g. `echo $HELLO`
+
+### Scope
+
+When you open up a new bash terminal in VS Code, it will not be aware of env vars that you set in another window. 
+
+If you want to env vars to persist across all future bash terminals that are open you need to env vars in your bash prfile e.g. `.bash_profile`
+
+### Persisting env vars in Gitpod
+Use gitpods secret storage
