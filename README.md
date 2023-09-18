@@ -70,3 +70,22 @@ If you want to env vars to persist across all future bash terminals that are ope
 
 ### Persisting env vars in Gitpod
 Use gitpods secret storage
+
+
+## AWS CLI Installation
+
+AWS CLI is installed for the project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Getting Started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
+
+
+## AWS Env Vars
+We can check if our AWS Credentials are set correctly by running the following command
+```sh
+aws sts get-caller-identity
+```
+
+En Vars listed:
+
+[AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
