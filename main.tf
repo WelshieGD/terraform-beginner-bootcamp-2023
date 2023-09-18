@@ -1,4 +1,27 @@
-# This is my first change
-# This is my second change
-# The first 2 changes were in GitPod
-# This change is in Github and is my source of truth
+terraform {
+  required_providers {
+    random = {
+      source = "hashicorp/random"
+      version = "3.5.1"
+    }
+  }
+}
+
+provider "random" {
+  # Configuration options
+}
+
+
+resource "random_string" "bucket_name" {
+  length           = 16
+  special          = true
+}
+
+output "random_bucket_name_id" {
+  value = random_string.bucket_name.id
+}
+
+
+output "random_bucket_name_result" {
+  value = random_string.bucket_name.result
+}

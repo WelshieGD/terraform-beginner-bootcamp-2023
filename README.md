@@ -89,3 +89,33 @@ En Vars listed:
 
 [AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
+## Terraform Basics
+
+### Terraform Registry
+Providers and Modules - [link](https://registry.terraform.io/)
+
+**Providers** = way you directly interact with API
+	- Aws
+	- Azure
+	- GCP
+	- K8s
+
+**Modules** Collection of Terraform files \ template to commonly used functions
+
+### Terraform init
+(https://developer.hashicorp.com/terraform/cli/commands/init)
+
+### Terraform plan
+(https://developer.hashicorp.com/terraform/cli/commands/plan)
+
+### Terraform apply
+(https://developer.hashicorp.com/terraform/cli/commands/apply)
+
+### Terraform lock files
+This file should be committed to source code
+(https://developer.hashicorp.com/terraform/language/files/dependency-lock)
+
+### Terraform State Files
+These files should not be committed to source code
+(https://spacelift.io/blog/terraform-state)
+
