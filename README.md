@@ -119,3 +119,4 @@ This file should be committed to source code
 These files should not be committed to source code
 (https://spacelift.io/blog/terraform-state)
 
+### Terraform init, plan and apply
