@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
+- [Terraform Beginner Bootcamp 2023](#journal/week0/terraform-beginner-bootcamp-2023)
   * [Table of Contents](#table-of-contents)
   * [Semantic Versioning](#semantic-versioning)
   * [Install Terraform CLI](#install-terraform-cli)
