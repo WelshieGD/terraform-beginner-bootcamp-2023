@@ -1,4 +1,4 @@
-# Terraform Beginner Bootcamp 2023
+# Terraform Beginner Bootcamp 2023 - week 0
 
 ## Semantic Versioning
 
