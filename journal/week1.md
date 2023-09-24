@@ -48,6 +48,7 @@ By default, Terraform will obtain an API token and save it in plain text in a lo
     - Terraform Cloud will error with no value set for variable. You need to plan -var <<variable name>> and make sure it matches it constraints. 
         - 1a2b3c4d-1abc-7a8b-9c0d-1234567890ab (use chatapi to understand regex and then create a variable that meets the regex)
         - terraform plan -var user_uuid="1a2b3c4d-5e6f-7abc-9abc-1234567890ab"
+        - You can also store this as a Terraform Cloud variable. 
     - Terraform non-Cloud would prompt for variable value
 - Make sure that the keys are activated in AWS
 - Make sure AWS keys are valid in gitpod 
