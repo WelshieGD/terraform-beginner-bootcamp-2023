@@ -55,6 +55,10 @@ By default, Terraform will obtain an API token and save it in plain text in a lo
     - aws sts get-caller-identity
     - check can list S3 buckets 
     ``` 
+    AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY
+    AWS_DEFAULT_REGION
+
     aws s3 ls
     ```
 - If you need to delete keys then:
