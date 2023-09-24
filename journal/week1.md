@@ -74,3 +74,26 @@ unset <<Variable>>
 -- WorkSpace Variables \ environment variables \  Sensitive
 
 
+# Other Terraform Links
+## Terraform import
+[Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+```
+terraform import aws_s3_bucket.bucket bucket-name
+# .bucket is the name in Terraform, not the AWS Bucket Name e.g.
+# terraform import aws_s3_bucket.example terraform 5p0vda6gtp33nq0fjublyalt56s7ylih
+
+```
+Or 
+```
+import {
+  to = aws_s3_bucket.bucket
+  id = "bucket-name"
+}
+```
+
+## Terraform Plan - Destroy and recreate bucket
+This will show that Terraform plans to destroy and recreate the bucket rather than import the existing bucket
+
+The following error is a latency error. Re-run apply
+Error: creating Amazon S3 (Simple Storage) Bucket (5p0vda6gtp33nq0fjublyalt56s7ylih): BucketAlreadyOwnedByYou: Your previous request to create the named bucket succeeded and you already own it.
