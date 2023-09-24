@@ -1,5 +1,31 @@
 # Terraform Beginner Bootcamp 2023
 
+- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
+  * [Table of Contents](#table-of-contents)
+  * [Semantic Versioning](#semantic-versioning)
+  * [Install Terraform CLI](#install-terraform-cli)
+    + [Considerations with Terraform CLI Changes](#considerations-with-terraform-cli-changes)
+    + [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+    + [Running new install file](#running-new-install-file)
+    + [Working with Env Vars](#working-with-env-vars)
+    + [Setting and unsetting Env Vars](#setting-and-unsetting-env-vars)
+    + [Printing Env Vars](#printing-env-vars)
+    + [Scope](#scope)
+    + [Persisting env vars in Gitpod](#persisting-env-vars-in-gitpod)
+  * [AWS CLI Installation](#aws-cli-installation)
+  * [AWS Env Vars](#aws-env-vars)
+  * [Terraform Basics](#terraform-basics)
+    + [Terraform Registry](#terraform-registry)
+    + [Terraform init](#terraform-init)
+    + [Terraform plan](#terraform-plan)
+    + [Terraform apply](#terraform-apply)
+    + [Terraform lock files](#terraform-lock-files)
+    + [Terraform State Files](#terraform-state-files)
+    + [Terraform init, plan and apply](#terraform-init--plan-and-apply)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## Semantic Versioning
 
 This project is going to use semantic versioning for its tagging.
@@ -14,7 +40,7 @@ The general format will be (do not include a v in front of  the version numbers)
 - **MINOR** version when you add functionality in a backward compatible manner
 - **PATCH** version when you make backward compatible bug fixes
 
-## References for CLI Refactor
+## Install Terraform CLI
 ### Considerations with Terraform CLI Changes
 The terraform cli installation instructions have changed due to gpg keyring changes. So we need to refer to the lastest instauctions on the terraform website and change the original [.gitpod.yml](.gitpod.yml)
 
@@ -79,7 +105,7 @@ AWS CLI is installed for the project via the bash script [`./bin/install_aws_cli
 [Getting Started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
 
 
-## AWS Env Vars
+### AWS Env Vars
 We can check if our AWS Credentials are set correctly by running the following command
 ```sh
 aws sts get-caller-identity
