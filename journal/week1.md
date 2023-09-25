@@ -97,3 +97,21 @@ This will show that Terraform plans to destroy and recreate the bucket rather th
 
 The following error is a latency error. Re-run apply
 Error: creating Amazon S3 (Simple Storage) Bucket (5p0vda6gtp33nq0fjublyalt56s7ylih): BucketAlreadyOwnedByYou: Your previous request to create the named bucket succeeded and you already own it.
+
+
+## Terraform Module Sources
+[Terraform Documentation - Module Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+Using the source, we can import the module from various places. e.g.:
+- locally
+- Github
+- Terraform Registry
+
+```
+module "terrahouse_aws" {
+  source = "./Modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+  
+}
+```
