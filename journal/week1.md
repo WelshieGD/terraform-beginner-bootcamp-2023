@@ -115,3 +115,34 @@ module "terrahouse_aws" {
   
 }
 ```
+
+# Static Websites on S3
+## Configuration
+- Configuration (https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
+
+## Provisioners
+- Don't necessarily use Terraform to copy files. That is not infrastructure. Although it can do it. 
+[Uploading a file to a bucket] (https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object)
+[Filesystem](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+Note that if you update the contents of the file then Terraform won't change know this unless you use the etag property. 
+-[filemd5 hash](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+- With this set, if you change the contents of the file, Terraform will detect a change and update the new file. 
+
+### Key options
+- path.root
+- path.module
+
+
+```
+resource "aws_s3_object" "object" {
+  bucket = "your_bucket_name"
+  key    = "new_object_key"
+  source = "path/to/file"
+
+  # The filemd5() function is available in Terraform 0.11.12 and later
+  # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
+  # etag = "${md5(file("path/to/file"))}"
+  etag = filemd5("path/to/file")
+}
+```
