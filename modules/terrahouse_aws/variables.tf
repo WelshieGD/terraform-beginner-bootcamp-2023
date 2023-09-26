@@ -14,3 +14,19 @@ variable "bucket_name" {
   type        = string
 
 }
+
+variable "index_html_filepath" {
+  type        = string
+  description = "File path for the index.html file"
+  
+
+
+}
+
+variable "error_html_filepath" {
+  type        = string
+  description = "File path for the error.html file"
+
+
+
+}
