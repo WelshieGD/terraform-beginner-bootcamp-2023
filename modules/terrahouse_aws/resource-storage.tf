@@ -37,10 +37,17 @@ resource "aws_s3_object" "index_html" {
 }
 
 resource "aws_s3_object" "upload_assets" {
-  for_each = fileset(var.assets_path,"*.{jpg,png,gif}")
+  # bucket = aws_s3_bucket.website_bucket.bucket
+  # key    = "assets/DSCN0231.jpg"
+  # source = "/workspace/terraform-beginner-bootcamp-2023/public/assets/DSCN0231.jpg"
+
+ # for_each = fileset(var.assets_path,"*.{jpg,png,gif}")
+   for_each = fileset("${path.root}/public/assets","*.*")
+  
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "assets/${each.key}"
-  source = "/workspace/terraform-beginner-bootcamp-2023/public/assets/${each.key}"
+  source = "${path.root}/public/assets/${each.key}"
+
 #  source = "${path.root}/public/assets/${each.key}"
   # source = "${var.assets_path}/${each.key}"
   # etag = filemd5("${var.assets_path}${each.key}")
@@ -90,4 +97,5 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
 
 resource "terraform_data" "content_version" {
   input = var.content_version
-}
+ 
+  }
