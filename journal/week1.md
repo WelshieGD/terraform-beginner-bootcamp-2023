@@ -134,15 +134,16 @@ Note that if you update the contents of the file then Terraform won't change kno
 - path.module
 
 
-```
-resource "aws_s3_object" "object" {
-  bucket = "your_bucket_name"
-  key    = "new_object_key"
-  source = "path/to/file"
+# CloudFront Distribution
+[Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)
+[Terraform - Cloudfront Origin Access Control](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control)
+[ AWS - Origin Access Control](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/)
 
-  # The filemd5() function is available in Terraform 0.11.12 and later
-  # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
-  # etag = "${md5(file("path/to/file"))}"
-  etag = filemd5("path/to/file")
-}
-```
+
+# Terraform Datasources
+This allows us to source data from cloud resources. This is useful when we want to reference cloud resources without importing them
+[Terraform Configuration Langauge](https://developer.hashicorp.com/terraform/tutorials/configuration-language/data-sources)
+
+# Terraform Locals
+
+[Terraform](https://developer.hashicorp.com/terraform/language/values/locals)

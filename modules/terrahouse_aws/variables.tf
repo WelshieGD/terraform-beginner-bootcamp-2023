@@ -12,21 +12,14 @@ variable "user_uuid" {
 variable "bucket_name" {
   description = "Bucket Name"
   type        = string
-
 }
 
 variable "index_html_filepath" {
   type        = string
   description = "File path for the index.html file"
-  
-
-
 }
 
 variable "error_html_filepath" {
   type        = string
   description = "File path for the error.html file"
-
-
-
 }
