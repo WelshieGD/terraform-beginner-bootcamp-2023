@@ -147,3 +147,9 @@ This allows us to source data from cloud resources. This is useful when we want 
 # Terraform Locals
 
 [Terraform](https://developer.hashicorp.com/terraform/language/values/locals)
+
+# Terraform Lifecyle
+[Terraform Lifecyle meta-arguments](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+[Manage Lifecycle](https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle)
+
+We don't want etag change to trigger a new plan. 
