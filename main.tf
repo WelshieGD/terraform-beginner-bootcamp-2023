@@ -5,21 +5,16 @@ terraform {
       version = "1.0.0"
     }
   }
-  #backend "remote" {
-  #  hostname = "app.terraform.io"
-  #  organization = "ExamPro"
+}
 
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
-  #cloud {
-  #  organization = "ExamPro"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+terraform {
+  cloud {
+    organization = "TerraformBootcampGramski"
 
+    workspaces {
+      name = "terra-house-gd"
+    }
+  }
 }
 
 provider "terratowns" {
@@ -28,14 +23,12 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-#module "terrahouse_aws" {
-#  source = "./modules/terrahouse_aws"
-#  user_uuid = var.user_uuid
-#  bucket_name = var.bucket_name
-#  index_html_filepath = var.index_html_filepath
-#  error_html_filepath = var.error_html_filepath
-#  content_version = var.content_version
-#}
+module "home_shrewsbury_hosting" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.shrewsbury.public_path
+  content_version = var.shrewsbury.content_version
+}
 
 resource "terratowns_home" "home" {
   name = "Shrewsbury"
@@ -44,29 +37,31 @@ Shrewsbury is a market town, civil parish and the county town of Shropshire, Eng
 DESCRIPTION
   #domain_name = module.terrahouse_aws.cloudfront_url
   #domain_name = "3fdq3gz.cloudfront.net"
-  domain_name=module.terrahouse_aws.cloudfront_url
+  domain_name=module.home_shrewsbury_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.shrewsbury.content_version
 }
 
-#################### Code from earlier ### Above is from Andrews GitHub repository
-# terraform {
-#   cloud {
-#     organization = "TerraformBootcampGramski"
-
-#     workspaces {
-#       name = "terra-house-gd"
-#     }
-#   }
-# }
-
-
-module "terrahouse_aws" {
+module "home_macbeth_hosting" {
   source = "./modules/terrahouse_aws"
   user_uuid = var.teacherseat_user_uuid
-  bucket_name = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  assets_path = var.assets_path
-  content_version = var.content_version
+  public_path = var.macbeth.public_path
+  content_version = var.macbeth.content_version
 }
+
+resource "terratowns_home" "home_macbeth" {
+  name = "Another Day, another place in space and time"
+  description = <<DESCRIPTION
+Tomorrow and tomorrow and tomorrow creeps thy petty pace from day to day to the last syllable of recorded time.
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  #domain_name = "3fdq3gz.cloudfront.net"
+  domain_name = module.home_macbeth_hosting.domain_name
+  town = "the-nomad-pad"
+  content_version = var.macbeth.content_version
+}
+
+
+
+
+

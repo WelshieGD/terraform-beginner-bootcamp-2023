@@ -12,6 +12,7 @@ tasks:
     before: |
       cd $PROJECT_ROOT
       source ./bin/install_terraform_cli
+      source ./bin/build_provider
 
   - name: aws-cli
     env:
